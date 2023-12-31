@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rooms</title>
+    <link rel="stylesheet" href="{% static 'handles/rooms.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Engineer's Hub</h1>
+        <form method="get" action="{% url 'rooms' %}">
+            <input type="text" name="q" placeholder="Search Rooms">
+        </form>
+
+        <a href="{% url 'logout' %}">Logout</a>
+    </header>
+
+    <main>
+        <section class="topics">
+            {% include 'handle/includes/topics.html' %}
+        </section>
+
+        <section class="feed">
+            <article class="feed_title">
+                <h5>{{ room_count }} rooms available</h5>
+                <a href="{% url 'create-room' %}">Create Room</a>
+            </article>
+
+            <article class="scroll">
+                {% include 'handle/includes/feed.html' %}
+
+                <div class="container">
+                    {% for post in page_obj.object_list %}
+                      {# note that the list of posts are in the page_obj.object_list not page_obj #}
+                        <h1>{{post.name}}</h1>
+
+                        <hr/>
+                     {% endfor %}
+                </div>
+                <section>
+                    {% if page_obj.has_other_pages %}
+                      <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                          <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+                        {% else %}
+                          <li class="disabled"><span>&laquo;</span></li>
+                        {% endif %}
+                        {% for i in page_obj.paginator.page_range %}
+                          {% if page_obj.number == i %}
+                            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                          {% else %}
+                            <li><a href="?page={{ i }}">{{ i }}</a></li>
+                          {% endif %}
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                          <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                        {% else %}
+                          <li class="disabled"><span>&raquo;</span></li>
+                        {% endif %}
+                      </ul>
+                    {% endif %}
+
+                </section>
+             </article>
+        </section>
+
+        <section class="activities">
+            {% include 'handle/includes/activity.html' %}
+        </section>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update User</title>
+    <link rel="stylesheet" href="{% static 'handles/update_user.css' %}">
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'rooms' %}">Engineer's Hub</a></h1>
+        <p class="logout"><a href="{% url 'logout' %}">Logout</a></p>
+    </header>
+
+    <main>
+        <section class="form_container">
+            <h1>Edit Your Profile</h1>
+
+            <form method="post" action="{% url 'update-user' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <p class="label">{{ form.avatar.label }}</p>
+                <p class="avatar">{{ form.avatar }}</p>
+
+                <p class="label">{{ form.first_name.label }}</p>
+                <p class="input">{{ form.first_name }}</p>
+
+                <p class="label">{{ form.last_name.label }}</p>
+                <p class="input">{{ form.last_name }}</p>
+
+                <p class="label">{{ form.bio.label }}</p>
+                <p class="input">{{ form.bio }}</p>
+
+                <p class="submit"><input type="submit" value="Submit"></p>
+            </form>
+
+        </section>
+    </main>
+</body>
+</html>

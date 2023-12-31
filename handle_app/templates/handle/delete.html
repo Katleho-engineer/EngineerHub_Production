@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete</title>
+    <link rel="stylesheet" href="{% static 'handles/delete.css' %}">
+</head>
+<body>
+    <main>
+        <section class="form">
+            <h1 class="title">Delete</h1>
+            <form method="post" action="">
+                {% csrf_token %}
+                <p class="message"> Are you sure you want to delete "{{ obj }}"?</p>
+
+                <article>
+                    <p class="back"><a href="{{ request.META.HTTP_REFERER }}">Go Back</a></p>
+                    <p class="submit"><input type="submit" value="Confirm"></p>
+                </article>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

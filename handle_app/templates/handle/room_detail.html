@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'handles/room_detail.css' %}">
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'rooms' %}">Engineer's Hub</a></h1>
+        <p class="logout"><a href="{% url 'logout' %}">Logout</a></p>
+    </header>
+
+    <main>
+        <section class="conversation">
+            <section class="room_info">
+                <h1 class="title">{{ room.topic }} Engineering Room</h1>
+
+                <article class="room_date">
+                    <h1>{{ room.name }}</h1>
+                    <p>{{ room.created|timesince }} ago</p>
+                </article>
+
+                <article class="admin">
+                    <h4>HOSTED BY</h4>
+                     <a href="{% url 'profile' room.host.id %}"><p>@{{ room.host.username }}</p></a>
+                </article>
+
+            </section>
+
+            <section class="chat_container">
+                <section class="chat_box">
+                    {% for message in messages %}
+                        <articlec class="user">
+                            <figure class="image_con">
+                                <img src="{{ message.user.avatar.url }}" class="image_feed image">
+                                <p class="name">@{{ message.user.username }} </p>
+                                <p class="time">{{ message.created| timesince }} ago</p>
+                            </figure>
+                            {% if request.user == message.user %}
+                                <a href="{% url 'delete-message' pk=message.id %}">Delete</a>
+                            {% endif %}
+                        </articlec>
+                        <p class="message">{{ message.body }}</p>
+                        <hr class="line">
+                    {% endfor %}
+                </section>
+            </section>
+
+            <section class="write">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="text" name="body" placeholder="Write your message here...">
+                </form>
+            </section>
+        </section>
+
+        <aside class="participants">
+            <h3 class="title">Participants</h3>
+
+            {% for participant in participants %}
+                <article class="image_container">
+                    <img src="{{ participant.avatar.url }}" class="image_feed image">
+                    <a href="{% url 'profile' participant.id %}"><p>@{{ participant.username }}</p></a>
+                </article>
+            {% endfor %}
+        </aside>
+    </main>
+</body>
+</html>

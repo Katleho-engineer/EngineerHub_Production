@@ -1,0 +1,8 @@
+<h1>Browse Topics</h1>
+
+<article class="topics_loop">
+    <p class="count_container"><a href="{% url 'rooms' %}">All <span class="topics_number">{{ topics.count |add:1 }}</span></a></p>
+    {% for topic in topics %}
+        <p class="count_container"><a href="{% url 'rooms' %}?q={{ topic.name }}">{{ topic.name }} <span class="topics_number">{{ topic.room_topic.all.count }}</span></a></p>
+    {% endfor %}
+</article>

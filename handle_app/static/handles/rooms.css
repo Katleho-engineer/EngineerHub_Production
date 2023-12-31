@@ -1,0 +1,554 @@
+/* || RESET || */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#browse_topics {
+    display: none;
+}
+
+#recent_activities {
+    display: none;
+}
+
+.hide {
+    display: none;
+}
+
+.hide input {
+    display: none;
+}
+
+.activities_too h2 {
+    display: none;
+}
+
+.activities_too {
+    display: none;
+}
+
+.topics_too {
+    display: none;
+}
+
+.topics_too h1 {
+    display: none;
+}
+
+
+
+/* || GENERAL || */
+
+body {
+    background-color: #363434;
+}
+/* || HEADER || */
+
+header {
+    background-color: #6e7777;
+    height: 4rem;
+    padding: 1rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    color: white;
+}
+
+header input {
+    width: 25rem;
+    padding: 0.7rem;
+    border-radius: 1rem;
+    background-color: rgba(220, 220, 220, 0.6);
+    caret-color: #ddffdd;
+    color: #ddffdd;
+
+    outline: none;
+    border: 3px solid green;
+    font-size: 1.3rem;
+}
+
+header input::placeholder {
+    color: #ddffdd;
+}
+
+header a {
+    color: #1b1b1b;
+    padding: 0.6rem;
+    border-radius: 10px;
+    background-color: white;
+
+    text-decoration: none;
+}
+
+/* || MAIN || */
+main {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    padding: 2rem;
+}
+
+
+/* || TOPICS || */
+.topics h1 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.topics .all a {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.topics_loop {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 3rem;
+}
+
+.topics_loop a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+/* || FEED || */
+
+.feed {
+    padding: 0.5rem 2rem 1rem 0;
+}
+
+.feed h5{
+    color: white;
+    font-size: 1.3rem;
+}
+
+.feed_title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.feed_title a {
+    color: white;
+}
+
+.name_date {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image_container {
+    display: flex;
+    align-items: center;
+}
+
+.image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: gray;
+    margin-right: 0.5rem;
+}
+
+.image_container .image_feed {
+    margin-right: 1rem;
+}
+
+.feed_image a {
+    font-size: 1.4rem;
+}
+
+.feed_image a:hover {
+    color: purple;
+}
+
+
+.feed_rooms {
+    background-color: #6e7777;
+    height: 15rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.4rem;
+
+    position: relative;
+}
+
+.feed_rooms h5 {
+    margin-top: 1.3rem;
+    text-decoration: none;
+}
+
+.feed_rooms h5 a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.feed_rooms h5 a:hover {
+    color: gainsboro;
+}
+
+.description {
+    margin-top: 1.2rem;
+    color: lightgoldenrodyellow;
+}
+
+.line {
+    position: absolute;
+    bottom: 4rem;
+    width: 95%;
+}
+
+.topic_name {
+    position: absolute;
+    left: 1rem;
+    bottom: 1.3rem;
+    font-size: 1.34rem;
+    color: #ddffdd;
+}
+
+.delete_edit {
+    position: absolute;
+    right: 1rem;
+    bottom: 1.3rem;
+    margin-right: 0.4rem;
+}
+
+.delete_edit a {
+    text-decoration: none;
+    margin-left: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    background-color: rgba(240, 255, 240, 0.4);
+    color: #4f4f4f;
+}
+
+.delete_edit a:hover {
+    background-color: gainsboro;
+}
+
+/* || ACTIVITIES || */
+
+.activities h2 {
+    color: white;
+    background-color: #4f4f4f;
+    padding: 1rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.activity_container {
+    padding: 1rem;
+    background-color: #464242;
+    max-height: 520px;
+    overflow: auto;
+
+}
+.activity_loop {
+    padding: 0.5rem;
+    border: 0.1rem solid floralwhite;
+    border-radius: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.activity_loop .user a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.activity_loop .time {
+    color: gray;
+    margin: 0.5rem 0;
+}
+
+.activity_loop .replied {
+    color: floralwhite;
+    margin-bottom: 0.5rem;
+}
+.activity_loop .replied a {
+    color: #dcdc99;
+    text-decoration: none;
+}
+
+.activity_loop .message {
+    width: 100%;
+    max-height: 7rem;
+    padding: 0.5rem;
+    background-color: rgba(148, 148, 154, 0.2);
+    color: white;
+}
+
+.activity_loop .delete {
+    margin-top: 0.4rem;
+}
+.activity_loop .delete a {
+    text-decoration: none;
+    color: mediumpurple;
+    margin-top: 1rem;
+}
+
+/* || COUNT TOPICS || */
+
+.count_container {
+    position: relative;
+}
+
+.topics_number {
+    position: absolute;
+    right: 2rem;
+
+    background-color: #bbbbbb;
+    padding: 0.2rem 0.6rem;
+}
+
+/* || SCROLL || */
+
+.scroll {
+    background-color: #464242;
+    height: 550px;
+    width: 100%;
+    overflow: scroll;
+}
+
+.scroll {
+    overflow: auto;
+}
+
+/* || PAGINATION || */
+
+.pagination {
+    display: flex;
+    gap: 2rem;
+    list-style-type: none;
+}
+
+.pagination a {
+    color: white;
+    padding: 0.5rem;
+    font-size: 1.3rem;
+
+}
+
+.pagination .active {
+    color: #72acc0;
+    font-size: 1.2rem;
+}
+
+/* || HIDE || */
+
+.search form {
+    display: grid;
+    place-content: center;
+}
+
+.search input {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 1rem;
+    background-color: rgba(220, 220, 220, 0.6);
+    caret-color: #ddffdd;
+    color: #ddffdd;
+
+    outline: none;
+    border: 3px solid green;
+    font-size: 1.3rem;
+
+}
+
+.search input::placeholder {
+    color: #ddffdd;
+}
+
+.topics_activities {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.topics_activities .ta_container {
+    background-color: transparent;
+    border: 2px solid purple;
+    border-radius: 1.3rem;
+    padding: 0.6em;
+    font-size: 1.3rem;
+    margin: 1.2rem 0;
+    cursor: pointer;
+
+}
+
+.topics_activities .act {
+    position: relative;
+    cursor: pointer;
+}
+
+.activities_too .activity_container {
+    position: absolute;
+    top: 3.5rem;
+    right: 1rem;
+    z-index: 1;
+
+    padding: 1rem;
+    background-color: #464242;
+    max-height: 420px;
+    width: 400px;
+    overflow: auto;
+
+}
+
+#recent_activities:checked ~ .activities_too {
+    display: block;
+}
+
+
+#recent_activities:checked ~ label {
+    color: white;
+}
+
+.browse {
+    cursor: pointer;
+    position: relative;
+}
+
+.topics_too .topics_loop {
+    position: absolute;
+    top: 3.5rem;
+    left: 2rem;
+    z-index: 1;
+
+    padding: 1rem;
+    background-color: #464242;
+    max-height: 500px;
+    width: 300px;
+    overflow: auto;
+
+}
+
+#browse_topics:checked ~ .topics_too {
+    display: block;
+}
+
+#browse_topics:checked ~ label {
+    color: white;
+}
+
+/* || MEDIA QUERIES || */
+
+/*  MOBILE DEVICES */
+
+@media (max-width: 320px) {
+
+    .topics, .activities, header input {
+        display: none;
+    }
+    main {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 2rem;
+    }
+    .hide input{
+        display: block;
+    }
+    .hide button {
+        display: inline-block;
+    }
+    .hide {
+        display: block;
+    }
+    .search input {
+        width: 14rem;
+    }
+
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    .topics, .activities, header input {
+        display: none;
+    }
+    main {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 2rem;
+    }
+    .hide input{
+        display: block;
+    }
+    .hide button {
+        display: inline-block;
+    }
+    .hide {
+        display: block;
+    }
+    .search input {
+        width: 20rem;
+    }
+
+}
+
+/*  iPads and Tablets */
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .topics, .activities, header input {
+        display: none;
+    }
+    main {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 2rem;
+    }
+    .hide input{
+        display: block;
+    }
+    .hide button {
+        display: inline-block;
+    }
+    .hide {
+        display: block;
+    }
+
+}
+
+/*  Laptop and small screens */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+     .topics, .activities, header input {
+        display: none;
+    }
+    main {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 2rem;
+    }
+    .hide input{
+        display: block;
+    }
+    .hide button {
+        display: inline-block;
+    }
+    .hide {
+        display: block;
+    }
+
+}
+
+/* Large screens and Desktops */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+
+}
+
+/* Extra Large screens and TVs  */
+
+@media (min-width: 1201px) {
+
+}

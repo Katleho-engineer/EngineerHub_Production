@@ -1,0 +1,25 @@
+{% for room in rooms %}
+<article class="feed_rooms">
+    {% if request.user == room.host %}
+        <article class="delete_edit">
+            <a href="{% url 'update-room' room.id %}">Edit</a>
+            <a href="{% url 'delete-room' room.id %}">Delete</a>
+        </article>
+    {% endif %}
+
+    <article class="name_date">
+        <figure class="image_container">
+            <img src="{{ room.host.avatar.url }}" class="image_feed image">
+            <a href="{% url 'profile' room.host.id %}">@{{ room.host.username }}</a>
+        </figure>
+
+        <h4>{{ room.created| timesince }} ago</h4>
+    </article>
+
+    <h5><a href="{% url 'room-detail' room.id %}">{{ room.name }}</a></h5>
+    <p class="description">{{ room.description }}</p>
+    <p class="topic_name">{{ room.topic.name }}</p>
+    <hr class="line">
+</article>
+{% endfor %}
+

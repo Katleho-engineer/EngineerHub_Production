@@ -1,0 +1,72 @@
+/* || RESET || */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* || GENERAL || */
+body {
+    background-color: #948d8d;
+}
+
+/* || MAIN || */
+
+main {
+    width: 100%;
+    height: 97vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* || FORM || */
+
+.form {
+    background-color: #4f4f4f;
+}
+
+.form form {
+    padding: 1rem;
+}
+
+.form .title {
+    background-color: #b29f9f;
+    padding: 0.7rem;
+    text-align: center;
+    font-size: 1.9rem;
+    margin-bottom: 1rem;
+}
+
+.form .message {
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.form article {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form .back {
+    font-size: 1.2rem;
+    color: #81d4fa;
+}
+
+.form .submit input {
+    padding: 0.7rem;
+    background-color: #4f4f4f;
+    color: white;
+    font-size: 1rem;
+}
+
+.form .submit input:hover {
+    color: #bbbbbb;
+    cursor: pointer;
+}

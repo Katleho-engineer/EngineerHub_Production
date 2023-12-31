@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'handles/create_room.css' %}">
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'rooms' %}">Engineer's Hub</a></h1>
+        <p class="logout"><a href="{% url 'logout' %}">Logout</a></p>
+    </header>
+
+    <main class="form_container">
+        <section class="form_field">
+            <h3 class="title">CREATE ENGINEERING ROOM</h3>
+            <form method="post" action="">
+                {% csrf_token %}
+                <p class="label">{{ form.topic.label }}</p>
+                <p class="topic_input">{{ form.topic }}</p>
+
+                <p class="label">{{ form.name.label }}</p>
+                <p class="name_input">{{ form.name }}</p>
+
+                <p class="label">{{ form.description.label }}</p>
+                <p class="description_input">{{ form.description }}</p>
+
+                <p class="submit"><input type="submit" value="Submit"></p>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'handles/profile.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1><a href="{% url 'rooms' %}">Engineer's Hub</a></h1>
+        <form method="get" action="{% url 'rooms' %}">
+            <input type="text" name="q" placeholder="Search Rooms">
+        </form>
+
+        <p class="logout"><a href="{% url 'logout' %}">Logout</a></p>
+    </header>
+
+    <main>
+        <section class="topics">
+            {% include 'handle/includes/topics.html' %}
+        </section>
+
+        <section>
+            <article class="user_data">
+                <img src="{{ user.avatar.url }}">
+                <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+                <p>@{{ user.username }}</p>
+
+                {% if request.user == user %}
+                <a href="{% url 'update-user' %}"><button>Edit Profile</button></a>
+                {% endif %}
+
+            </article>
+
+            <h2 class="user_about">About</h2>
+            <p class="user_bio">{{ user.bio }}</p>
+
+            <article class="search hide">
+                <form method="get" action="{% url 'rooms' %}">
+                    <input type="text" name="q" placeholder="Search Rooms">
+                </form>
+            </article>
+
+            <article class="topics_activities top">
+                <article class="hide ta_container browse">
+                    <input type="checkbox" name="slider" id="browse_topics">
+                    <label for="browse_topics" class="browse_topics">Browse Topics</label>
+
+                    <article class="topics_too">
+                        {% include 'handle/includes/topics.html' %}
+                    </article>
+                </article>
+
+                <article class="hide ta_container act">
+                    <input type="checkbox" name="slider" id="recent_activities">
+                    <label for="recent_activities" class="recent_activities">Recent Activities</label>
+
+                    <article class="activities_too">
+                        {% include 'handle/includes/activity.html' %}
+                    </article>
+                </article>
+            </article>
+
+            <h3 class="user_data_h3">Rooms Created</h3>
+
+            {% include 'handle/includes/feed.html' %}
+        </section>
+
+        <section class="activities">
+            {% include 'handle/includes/activity.html' %}
+        </section>
+    </main>
+</body>
+</html>

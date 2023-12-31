@@ -1,0 +1,20 @@
+<h2>Recent Activity</h2>
+
+    <section class="activity_container">
+    {% for message in room_messages %}
+        <article class="activity_loop">
+            <figure class="image_container">
+                <img src="{{ message.user.avatar.url }}" class="image">
+                <p class="user"><a href="{% url 'profile' message.user.id %}">@{{ message.user.username }}</a></p>
+            </figure>
+
+            <p class="time">{{ message.created| timesince }} ago</p>
+            <p class="replied">replied in <a href="{% url 'room-detail' message.room.id %}">"{{ message.room }}"</a> room.</p>
+            <p class="message">{{ message }}</p>
+
+            {% if request.user == message.user %}
+                <p class="delete"><a href="{% url 'delete-message' pk=message.id %}">Delete</a></p>
+            {% endif %}
+        </article>
+    {% endfor %}
+    </section>

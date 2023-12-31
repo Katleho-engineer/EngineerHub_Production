@@ -1,0 +1,193 @@
+/* || RESET || */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* || GENERAL || */
+body {
+    background-color: #948d8d;
+}
+
+
+/* || MAIN || */
+
+main {
+    width: 100%;
+    height: 97vh;
+    display: grid;
+    place-content: center;
+}
+
+
+/* || LOGIN || */
+
+.login {
+    width: 700px;
+
+    background-color: gray;
+}
+
+.login .title {
+    padding: 1rem;
+    background-color: rgba(27, 27, 27, 0.5);
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.login .title_below {
+    text-align: center;
+    margin: 1rem auto 1rem auto;
+    font-size: 1.6rem;
+}
+
+.login .input input {
+    padding: 0.6rem;
+    width: 100%;
+    margin-bottom: 0.7rem;
+    font-size: 1.2rem;
+}
+
+.login .input input:focus {
+    outline-color: #4f4f4f;
+}
+
+.login form {
+    padding: 1rem;
+}
+
+.login .submit input {
+    padding: 0.6rem;
+    background-color: purple;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 10px;
+}
+
+.login .submit input:hover {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.login .signup {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+/* || MESSAGE || */
+
+.message {
+    list-style-type: none;
+    margin-bottom: 1rem;
+}
+
+.message li {
+    color: #261414;
+    font-size: 1.3rem;
+}
+
+
+/* || MEDIA QUERIES || */
+
+/*  MOBILE DEVICES */
+
+@media (max-width: 320px) {
+    body {
+        background-color: white;
+    }
+    .login {
+        width: 200px;
+    }
+
+    .login .title {
+        font-size: 1.4rem;
+    }
+
+    .login .title_below {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    body {
+        background-color: white;
+    }
+    .login {
+        width: 300px;
+    }
+    .login .title {
+        font-size: 2rem;
+    }
+
+    .login .title_below {
+        font-size: 1.2rem;
+    }
+}
+
+/*  iPads and Tablets */
+
+@media (min-width: 481px) and (max-width: 768px) {
+    body {
+        background-color: red;
+    }
+    .login {
+        width: 500px;
+    }
+    .login .title {
+        font-size: 2.7rem;
+    }
+
+    .login .title_below {
+        font-size: 1.5rem;
+    }
+}
+
+/*  Laptop and small screens */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    body {
+        background-color: black;
+    }
+    .login {
+        width: 600px;
+    }
+    .login .input input {
+        font-size: 1.5rem;
+    }
+    .login .submit input {
+        font-size: 1.4rem;
+    }
+
+}
+
+/* Large screens and Desktops */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+    body {
+        background-color: purple;
+    }
+}
+
+/* Extra Large screens and TVs  */
+
+@media (min-width: 1201px) {
+    body {
+        background-color: greenyellow;
+    }
+    .login .title {
+        font-size: 3.3rem;
+    }
+
+    .login .title_below {
+        font-size: 2.5rem;
+    }
+
+}
