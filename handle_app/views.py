@@ -29,6 +29,9 @@ def roomsPage(request):
 
     room_count = rooms.count()
 
+    current_user = request.user.username
+    user_info = User.objects.get(username=current_user)
+
     p = Paginator(rooms, 2)
     page_number = request.GET.get('page')
 
@@ -47,6 +50,7 @@ def roomsPage(request):
         'topics': topics,
         'room_count': room_count,
         'room_messages': room_messages,
+        'user_info': user_info,
     }
     return render(request, 'handle/rooms.html', context)
 
@@ -79,11 +83,15 @@ def roomDetailPage(request, pk):
 
     all_rooms = Room.objects.all()
 
+    current_user = request.user.username
+    user_info = User.objects.get(username=current_user)
+
     context = {
         'all_rooms': all_rooms,
         'room': room,
         'messages': room_messages,
         'participants': participants,
+        'user_info': user_info,
     }
     return render(request, 'handle/room_detail.html', context)
 
@@ -99,8 +107,12 @@ def createRoomPage(request):
             room.save()
             return redirect('rooms')
 
+    current_user = request.user.username
+    user_info = User.objects.get(username=current_user)
+
     context = {
         'form': form,
+        'user_info': user_info,
     }
     return render(request, 'handle/create_room.html', context)
 
@@ -115,8 +127,12 @@ def updateRoomPage(request, pk):
             form.save()
             return redirect('rooms')
 
+    current_user = request.user.username
+    user_info = User.objects.get(username=current_user)
+
     context = {
         'form': form,
+        'user_info': user_info,
     }
     return render(request, 'handle/create_room.html', context)
 
@@ -201,11 +217,15 @@ def userProfilePage(request, pk):
     room_messages = user.host_messages.all()
     topics = Topic.objects.all()
 
+    current_user = request.user.username
+    user_info = User.objects.get(username=current_user)
+
     context = {
         'user': user,
         'rooms': rooms,
         'room_messages': room_messages,
         'topics': topics,
+        'user_info': user_info,
     }
 
     return render(request, 'handle/profile.html', context)

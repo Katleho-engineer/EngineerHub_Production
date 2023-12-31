@@ -9,7 +9,12 @@
 <body>
     <header>
         <h1><a href="{% url 'rooms' %}">Engineer's Hub</a></h1>
-        <p class="logout"><a href="{% url 'logout' %}">Logout</a></p>
+
+        <nav>
+            <img src="{{ user_info.avatar.url }}" class="image_feed image">
+            <p class="profile"><a href="{% url 'profile' request.user.id %}">@{{ request.user.username }}</a></p>
+            <p class="logout"><a href="{% url 'logout' %}">Logout</a></p>
+        </nav>
     </header>
 
     <main>
