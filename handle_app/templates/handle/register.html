@@ -9,18 +9,13 @@
 <body>
     <main class="form_container">
         <section class="form_field">
-            {% if messages %}
-                <ul class="message">
-                    {% for message in messages %}
-                        <li>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
+
 
             <h1 class="title">Register</h1>
 
             <form method="post" action="">
                 {% csrf_token %}
+
                 {% for field in form %}
                     <p class="label">{{ field.label }}</p>
                     <p class="input">{{ field }}</p>
