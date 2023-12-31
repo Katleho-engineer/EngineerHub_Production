@@ -35,7 +35,7 @@
                         <articlec class="user">
                             <figure class="image_con">
                                 <img src="{{ message.user.avatar.url }}" class="image_feed image">
-                                <p class="name">@{{ message.user.username }} </p>
+                                <p class="name"><a href="{% url 'profile' message.user.id %}">@{{ message.user.username }}</a></p>
                                 <p class="time">{{ message.created| timesince }} ago</p>
                             </figure>
                             {% if request.user == message.user %}

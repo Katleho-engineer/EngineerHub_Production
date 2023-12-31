@@ -163,8 +163,9 @@ main {
     margin-right: 1rem;
 }
 
-.feed_image a {
+.feed_image a:any-link {
     font-size: 1.4rem;
+    color: #593d96;
 }
 
 .feed_image a:hover {
