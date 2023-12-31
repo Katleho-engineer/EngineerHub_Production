@@ -42,13 +42,43 @@ header input {
     font-size: 1.3rem;
 }
 
-header p a {
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header .logout a {
     color: #1b1b1b;
     padding: 0.6rem;
     border-radius: 10px;
     background-color: white;
 
     text-decoration: none;
+    margin-left: 2rem;
+    transition: all 0.5s ease-in-out;
+}
+
+header .logout a:hover {
+    background-color: #4f4f4f;
+    color: white;
+}
+
+header .profile a:any-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+header .profile a:hover {
+    text-decoration: underline;
+}
+
+.image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: gray;
+    margin-right: 0.5rem;
 }
 
 
