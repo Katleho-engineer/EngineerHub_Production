@@ -1,0 +1,211 @@
+/* || RESET || */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+/* || GENERAL || */
+body {
+    background-color: #363434;
+    max-height: 97vh;
+}
+
+/* || HEADER || */
+
+header {
+    background-color: #6e7777;
+    height: 4rem;
+    padding: 1rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 a {
+    color: white;
+}
+
+header .logout a {
+    color: #1b1b1b;
+    padding: 0.6rem;
+    border-radius: 10px;
+    background-color: white;
+
+    text-decoration: none;
+}
+
+/* || MAIN || */
+main {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2rem;
+
+    padding: 2rem;
+}
+
+
+/* || MAIN || */
+
+.conversation {
+    background-color: #4f4f4f;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+/* || ROOM INFO || */
+
+.room_info .title {
+    padding: 1rem;
+    background-color: #6f5f8d;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+/* || ROOM DATE || */
+
+.room_info .room_date {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 1rem;
+}
+
+.room_info .room_date h1 {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.room_info .room_date p {
+    color: white;
+}
+
+.room_info .admin {
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.room_info .admin h4 {
+    color: white;
+}
+
+.room_info .admin p {
+    color: white;
+}
+/* || CHAT BOX || */
+.chat_container {
+    padding: 1rem;
+}
+
+.chat_box {
+    max-width: 100%;
+    height: 340px;
+    overflow: auto;
+
+    background-color: #8c8b8b;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.chat_box .message {
+    margin-bottom: 1rem;
+    color: gainsboro;
+    font-size: 1.3rem;
+}
+.chat_box .line {
+    margin-bottom: 1rem;
+}
+
+.chat_box .user {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.image_con {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.image_con .name {
+    color: purple;
+    font-size: 1.3rem;
+}
+
+.image_con .name:hover {
+    color: #5E5694;
+    cursor: pointer;
+}
+
+.image_con .time {
+    color: black;
+    margin-left: 0.5rem;
+}
+
+
+/* || WRITE MESSAGE || */
+
+.write {
+    padding: 1rem;
+}
+
+.write input {
+    padding: 0.6rem;
+    width: 100%;
+}
+
+
+/* || PARTICIPANTS || */
+
+.participants {
+    background-color: #4f4f4f;
+    border-radius: 1rem 0.4rem 0 0;
+}
+
+.participants .title {
+    padding: 1rem;
+    color: white;
+    font-size: 1.5rem;
+    background-color: #5E5694;
+    border-radius: 0.6rem 0.6rem 0 0;
+}
+
+.participants p {
+    padding: 1rem;
+    color: white;
+    font-size: 1.4rem;
+}
+
+.image_container {
+    display: flex;
+    align-items: center;
+}
+
+.image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: gray;
+    margin-right: 0.5rem;
+}
+
+.image_container .image_feed {
+    margin-left: 0.5rem;
+}
+
+.image_container p {
+    color: snow;
+    font-size: 1.4rem;
+}
+
+.image_container p:hover {
+    color: #bbbbbb;
+}
